@@ -2,7 +2,7 @@
     <div class="table-responsive">
         <table class="table table-striped table-hover">
             <tbody>
-            <tr v-for="client in clients.clients">
+            <tr v-for="client in clients">
                 <td><a data-toggle="tab" v-on:click="displayClient(client.id)"
                        class="client-link">{{client.name}}</a>
                 </td>

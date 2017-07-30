@@ -19,9 +19,14 @@
                     </li>
                 </ul>
                 <div class="tab-content">
-                    <div id="private" class="tab-pane" :class="{'active': isClientsTabActive}">
+                    <div class="tab-pane" :class="{'active': isClientsTabActive}">
                         <div class="full-height-scroll">
                             <contacts></contacts>
+                        </div>
+                    </div>
+                    <div class="tab-pane" :class="{'active': isCompaniesTabActive}">
+                        <div class="full-height-scroll">
+                            <companies></companies>
                         </div>
                     </div>
                 </div>
@@ -33,12 +38,14 @@
 <script>
   import Search from './Search'
   import Contacts from './Contacts'
+  import Companies from './Companies'
 
   export default {
     name: 'clients',
     props: [],
     components: {
       Search,
+      Companies,
       Contacts
     },
     data: () => ({

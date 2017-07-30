@@ -14,7 +14,7 @@ const actions = {
   fetchClients ({commit}, payload) {
     commit('FETCH_CLIENTS')
     if (payload !== undefined) {
-      api.clientSearch(payload.clientSearch)
+      api.clientsSearch(payload.search)
         .then(clients => commit('UPDATE_CLIENTS', {clients}))
         .catch(err => commit('ERROR_CLIENTS', {err}))
     }
