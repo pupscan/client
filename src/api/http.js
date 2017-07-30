@@ -1,4 +1,4 @@
 import axios from 'axios'
 
 // Configure your axios
-export default axios.create({baseURL: 'https://httpbin.org/'})
+export default axios.create({baseURL: 'http://api.ticket.pupscan.com/clients/'})
