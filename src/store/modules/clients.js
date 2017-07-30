@@ -2,11 +2,13 @@ import api from '../../api'
 
 const state = {
   clients: [],
-  status: 'loaded'
+  status: 'loaded',
+  count: 0
 }
 
 const getters = {
   clients: state => state.clients,
+  clientsCount: state => state.count,
   clientsStatus: state => state.status
 }
 
@@ -32,7 +34,8 @@ const mutations = {
   },
   'UPDATE_CLIENTS' (state, {clients}) {
     state.status = 'loaded'
-    state.clients = clients
+    state.clients = clients.content
+    state.count = clients.totalElements
   },
   'ERROR_LOAD_CLIENTS' (state) {
     state.status = 'error'

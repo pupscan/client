@@ -1,13 +1,14 @@
 <template>
     <div class="ibox">
         <div class="ibox-content">
-            <!--<span class="text-muted small pull-right">Last modification: <i class="fa fa-clock-o"></i> 2:10 pm - 12.06.2014</span>-->
             <h2>Clients</h2>
-            <search></search>
+            <contacts-search v-if="isContactsTabActive"></contacts-search>
+            <companies-search v-if="isCompaniesTabActive"></companies-search>
             <div class="clients-list">
                 <ul class="nav nav-tabs">
-                    <!--<span class="pull-right small text-muted">{{ clients.total }} clients</span>-->
-                    <li :class="{'active': isClientsTabActive}">
+                    <contacts-count v-if="isContactsTabActive"></contacts-count>
+                    <companies-count v-if="isCompaniesTabActive"></companies-count>
+                    <li :class="{'active': isContactsTabActive}">
                         <a data-toggle="tab" v-on:click="activeTab('clients-tab')">
                             <i class="fa fa-user"></i>Contacts
                         </a>
@@ -19,7 +20,7 @@
                     </li>
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane" :class="{'active': isClientsTabActive}">
+                    <div class="tab-pane" :class="{'active': isContactsTabActive}">
                         <div class="full-height-scroll">
                             <contacts></contacts>
                         </div>
@@ -36,30 +37,36 @@
 </template>
 
 <script>
-  import Search from './Search'
+  import CompaniesSearch from './CompaniesSearch'
+  import ContactsSearch from './ContactsSearch'
   import Contacts from './Contacts'
   import Companies from './Companies'
+  import ContactsCount from './ContactsCount'
+  import CompaniesCount from './CompaniesCount'
 
   export default {
     name: 'clients',
     props: [],
     components: {
-      Search,
       Companies,
-      Contacts
+      CompaniesCount,
+      CompaniesSearch,
+      Contacts,
+      ContactsCount,
+      ContactsSearch
     },
     data: () => ({
-      isClientsTabActive: true,
+      isContactsTabActive: true,
       isCompaniesTabActive: false
     }),
     methods: {
       activeTab (tab) {
         if (tab === 'clients-tab') {
-          this.isClientsTabActive = true
+          this.isContactsTabActive = true
           this.isCompaniesTabActive = false
         }
         else {
-          this.isClientsTabActive = false
+          this.isContactsTabActive = false
           this.isCompaniesTabActive = true
         }
       }

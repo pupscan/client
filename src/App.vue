@@ -1,15 +1,13 @@
 <template>
     <div id="wrapper">
-
         <div id="page-wrapper" class="gray-bg">
-            <div class="wrapper wrapper-content  animated fadeInRight">
+            <div class="wrapper wrapper-content animated fadeInRight">
                 <div class="row">
-                    <div class="col-sm-7">
+                    <div class="col-sm-8">
                         <clients></clients>
                     </div>
-                    <div class="col-sm-5">
+                    <div class="col-sm-4">
                         <div class="ibox ">
-
                             <div class="ibox-content">
                                 <div class="tab-content">
                                     <div id="contact-1" class="tab-pane active">

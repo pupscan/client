@@ -1,6 +1,6 @@
 <template>
     <div class="input-group">
-        <input v-on:input="search" placeholder="Search client" class="input form-control">
+        <input v-on:input="search" placeholder="Search contact" class="input form-control">
         <span class="input-group-btn">
             <button type="button" class="btn btn btn-primary search">
                 <loader :status="status"><i class="fa fa-search"></i> Search</loader>
@@ -15,7 +15,7 @@
   import {mapGetters} from 'vuex'
 
   export default {
-    name: 'search',
+    name: 'search-client',
     components: {
       Loader
     },
