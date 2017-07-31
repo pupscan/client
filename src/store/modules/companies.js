@@ -13,15 +13,14 @@ const getters = {
 }
 
 const actions = {
-  fetchCompanies ({commit}, payload) {
+  fetchCompanies({commit}, payload) {
     commit('FETCH_COMPANIES')
-    if (payload !== undefined) {
-      api.companiesSearch(payload.search)
+    if (payload === undefined) {
+      api.companies()
         .then(companies => commit('UPDATE_COMPANIES', {companies}))
         .catch(err => commit('ERROR_COMPANIES', {err}))
-    }
-    else {
-      api.companies()
+    } else {
+      api.companiesSearch(payload.search)
         .then(companies => commit('UPDATE_COMPANIES', {companies}))
         .catch(err => commit('ERROR_COMPANIES', {err}))
     }
@@ -29,15 +28,15 @@ const actions = {
 }
 
 const mutations = {
-  'FETCH_COMPANIES' (state) {
+  'FETCH_COMPANIES'(state) {
     state.status = 'loading'
   },
-  'UPDATE_COMPANIES' (state, {companies}) {
+  'UPDATE_COMPANIES'(state, {companies}) {
     state.status = 'loaded'
     state.companies = companies.content
     state.count = companies.totalElements
   },
-  'ERROR_LOAD_COMPANIES' (state) {
+  'ERROR_LOAD_COMPANIES'(state) {
     state.status = 'error'
   }
 }

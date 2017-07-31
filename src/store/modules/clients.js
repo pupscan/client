@@ -13,15 +13,14 @@ const getters = {
 }
 
 const actions = {
-  fetchClients ({commit}, payload) {
+  fetchClients({commit}, payload) {
     commit('FETCH_CLIENTS')
-    if (payload !== undefined) {
-      api.clientsSearch(payload.search)
+    if (payload === undefined) {
+      api.clients()
         .then(clients => commit('UPDATE_CLIENTS', {clients}))
         .catch(err => commit('ERROR_CLIENTS', {err}))
-    }
-    else {
-      api.clients()
+    } else {
+      api.clientsSearch(payload.search)
         .then(clients => commit('UPDATE_CLIENTS', {clients}))
         .catch(err => commit('ERROR_CLIENTS', {err}))
     }
@@ -29,15 +28,15 @@ const actions = {
 }
 
 const mutations = {
-  'FETCH_CLIENTS' (state) {
+  'FETCH_CLIENTS'(state) {
     state.status = 'loading'
   },
-  'UPDATE_CLIENTS' (state, {clients}) {
+  'UPDATE_CLIENTS'(state, {clients}) {
     state.status = 'loaded'
     state.clients = clients.content
     state.count = clients.totalElements
   },
-  'ERROR_LOAD_CLIENTS' (state) {
+  'ERROR_LOAD_CLIENTS'(state) {
     state.status = 'error'
   }
 }

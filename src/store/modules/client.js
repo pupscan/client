@@ -2,7 +2,7 @@ import api from '../../api'
 
 const state = {
   client: {},
-  status: 'loaded',
+  status: 'loaded'
 }
 
 const getters = {
