@@ -28,7 +28,8 @@
             <tfoot>
             <tr>
                 <td colspan="5" class="footable-visible">
-                    <pagination :totalPages="22" :current="4" :go-to="goTo"></pagination>
+                    <pagination :totalPages="pagination.totalPages" :current="pagination.current"
+                                :go-to="goTo"></pagination>
                 </td>
             </tr>
             </tfoot>
@@ -47,14 +48,17 @@
     },
     computed: {
       ...mapGetters({
-        clients: 'clients'
+        clients: 'clients',
+        pagination: 'clientsPagination'
       })
     },
     methods: {
       displayClient(clientId) {
         this.$store.dispatch('fetchClient', {clientId})
       },
-      goTo: page => console.log(page),
+      goTo(page) {
+        this.$store.dispatch('fetchClients', {page})
+      }
     },
     created() {
       this.$store.dispatch('fetchClients')
