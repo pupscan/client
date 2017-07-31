@@ -16,22 +16,32 @@
                 </td>
             </tr>
             </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="5" class="footable-visible">
+                    <pagination></pagination>
+                </td>
+            </tr>
+            </tfoot>
         </table>
     </div>
 </template>
 
 <script>
+  import Pagination from './Pagination'
   import {mapGetters} from 'vuex'
 
   export default {
     name: 'companies',
-    props: [],
+    components: {
+      Pagination
+    },
     computed: {
       ...mapGetters({
         companies: 'companies'
       })
     },
-    created () {
+    created() {
       this.$store.dispatch('fetchCompanies')
     }
   }

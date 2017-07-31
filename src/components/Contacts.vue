@@ -8,7 +8,7 @@
                 </td>
                 <td class="col-sm-3">
                     <ul class="tag-list" style="padding: 0">
-                        <li v-for="tag in client.tags" class="tag" ><i class="fa fa-tag"></i> {{tag}}</li>
+                        <li v-for="tag in client.tags" class="tag"><i class="fa fa-tag"></i> {{tag}}</li>
                     </ul>
                 </td>
                 <td class="contact-type">
@@ -25,27 +25,38 @@
                 </td>
             </tr>
             </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="5" class="footable-visible">
+                    <pagination :totalPages="22" :current="4" :go-to="goTo"></pagination>
+                </td>
+            </tr>
+            </tfoot>
         </table>
     </div>
 </template>
 
 <script>
+  import Pagination from './Pagination'
   import {mapGetters} from 'vuex'
 
   export default {
     name: 'contacts',
-    props: [],
+    components: {
+      Pagination
+    },
     computed: {
       ...mapGetters({
         clients: 'clients'
       })
     },
     methods: {
-      displayClient (clientId) {
+      displayClient(clientId) {
         this.$store.dispatch('fetchClient', {clientId})
-      }
+      },
+      goTo: page => console.log(page),
     },
-    created () {
+    created() {
       this.$store.dispatch('fetchClients')
     }
   }
