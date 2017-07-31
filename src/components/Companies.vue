@@ -19,7 +19,9 @@
             <tfoot>
             <tr>
                 <td colspan="5" class="footable-visible">
-                    <pagination></pagination>
+                    <pagination :totalPages="pagination.totalPages"
+                                :current="pagination.current"
+                                :go-to="goTo"></pagination>
                 </td>
             </tr>
             </tfoot>
@@ -38,10 +40,16 @@
     },
     computed: {
       ...mapGetters({
-        companies: 'companies'
+        companies: 'companies',
+        pagination: 'companiesPagination'
       })
     },
-    created() {
+    methods: {
+      goTo (page) {
+        this.$store.dispatch('fetchCompanies', {page})
+      }
+    },
+    created () {
       this.$store.dispatch('fetchCompanies')
     }
   }

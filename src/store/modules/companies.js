@@ -11,12 +11,14 @@ const state = {
 const getters = {
   companies: state => state.companies,
   companiesCount: state => state.count,
+  companiesSearchRequest: state => state.search,
+  companiesPagination: state => state.pagination,
   companiesStatus: state => state.status
 }
 
 const actions = {
   fetchCompanies({commit}, {page = 0, search = state.search} = {}) {
-    commit('FETCH_COMPANIES')
+    commit('FETCH_COMPANIES', {search})
     api.companiesSearch({search, page})
       .then(companies => commit('UPDATE_COMPANIES', {companies}))
       .catch(err => commit('ERROR_COMPANIES', {err}))
@@ -24,13 +26,13 @@ const actions = {
 }
 
 const mutations = {
-  'FETCH_COMPANIES'(state) {
+  'FETCH_COMPANIES'(state, {search}) {
+    state.search = search
     state.status = 'loading'
   },
-  'UPDATE_COMPANIES'(state, {companies, search}) {
+  'UPDATE_COMPANIES'(state, {companies}) {
     state.status = 'loaded'
     state.companies = companies.content
-    state.search = search
     state.pagination = {totalPages: companies.totalPages, current: companies.number}
     state.count = companies.totalElements
   },

@@ -18,21 +18,21 @@ const getters = {
 
 const actions = {
   fetchClients({commit}, {page = 0, search = state.search} = {}) {
-    commit('FETCH_CLIENTS')
+    commit('FETCH_CLIENTS', {search})
     api.clientsSearch({search, page})
-      .then(clients => commit('UPDATE_CLIENTS', {clients, search}))
+      .then(clients => commit('UPDATE_CLIENTS', {clients}))
       .catch(err => commit('ERROR_CLIENTS', {err}))
   }
 }
 
 const mutations = {
-  'FETCH_CLIENTS'(state) {
+  'FETCH_CLIENTS'(state, {search}) {
+    state.search = search
     state.status = 'loading'
   },
-  'UPDATE_CLIENTS'(state, {clients, search}) {
+  'UPDATE_CLIENTS'(state, {clients}) {
     state.status = 'loaded'
     state.clients = clients.content
-    state.search = search
     state.pagination = {totalPages: clients.totalPages, current: clients.number}
     state.count = clients.totalElements
   },
