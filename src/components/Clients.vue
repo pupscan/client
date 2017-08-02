@@ -37,12 +37,12 @@
 </template>
 
 <script>
-  import CompaniesSearch from './CompaniesSearch'
-  import ContactsSearch from './ContactsSearch'
-  import Contacts from './Contacts'
-  import Companies from './Companies'
-  import ContactsCount from './ContactsCount'
-  import CompaniesCount from './CompaniesCount'
+  import CompaniesSearch from './CompaniesSearch.vue'
+  import ContactsSearch from './ContactsSearch.vue'
+  import Contacts from './Contacts.vue'
+  import Companies from './Companies.vue'
+  import ContactsCount from './ContactsCount.vue'
+  import CompaniesCount from './CompaniesCount.vue'
 
   export default {
     name: 'clients',

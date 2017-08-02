@@ -38,7 +38,7 @@
 </template>
 
 <script>
-  import Pagination from './Pagination'
+  import Pagination from './Pagination.vue'
   import {mapGetters} from 'vuex'
 
   export default {

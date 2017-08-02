@@ -11,7 +11,7 @@
 
 <script>
   import _ from 'lodash'
-  import Loader from './Loader'
+  import Loader from './Loader.vue'
   import {mapGetters} from 'vuex'
 
   export default {
