@@ -4,6 +4,7 @@
             <div class="row">
                 <div class="col-md-offset-3 col-md-6">
                     <div class="ibox-content">
+                        <h1 class="title">Clients</h1>
                         <form class="m-t" role="form" action="index.html">
                             <div class="form-group">
                                 <input type="email" class="form-control" placeholder="Username" required="">
@@ -12,19 +13,7 @@
                                 <input type="password" class="form-control" placeholder="Password" required="">
                             </div>
                             <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
-
-                            <a href="#">
-                                <small>Forgot password?</small>
-                            </a>
-
-                            <p class="text-muted text-center">
-                                <small>Do not have an account?</small>
-                            </p>
-                            <a class="btn btn-sm btn-white btn-block" href="register.html">Create an account</a>
                         </form>
-                        <p class="m-t">
-                            <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small>
-                        </p>
                     </div>
                 </div>
             </div>
@@ -41,5 +30,9 @@
 <style lang="scss">
     .body {
         height:100%;
+    }
+    .title {
+        text-align: center;
+        margin: 40px 40px;
     }
 </style>
