@@ -1,3 +1,6 @@
-export default {
-  isLogged: () => false
+
+const auth = {
+  isLogged: () => true,
 }
+
+export default auth

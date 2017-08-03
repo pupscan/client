@@ -36,7 +36,7 @@ const mutations = {
     state.pagination = {totalPages: companies.totalPages, current: companies.number}
     state.count = companies.totalElements
   },
-  'ERROR_LOAD_COMPANIES'(state) {
+  'ERROR_COMPANIES'(state) {
     state.status = 'error'
   }
 }

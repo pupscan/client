@@ -27,7 +27,7 @@ const mutations = {
     state.status = 'loaded'
     state.client = client
   },
-  'ERROR_LOAD_CLIENT'(state) {
+  'ERROR_CLIENT'(state) {
     state.status = 'error'
   }
 }
