@@ -24,6 +24,9 @@
   },
   "xo": {
     "semicolon": false,
-    "space": true
+    "space": true,
+    "rules": {
+      "no-return-assign": 0
+    }
   }
 }

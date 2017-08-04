@@ -1,4 +1,9 @@
 import axios from 'axios'
 
-// Configure your axios
-export default axios.create({baseURL: 'https://api.authentication.pupscan.com/'})
+export default axios.create({
+  baseURL: 'https://api.authentication.pupscan.com/',
+  auth: {
+    username: 'html5',
+    password: 'password'
+  }
+})

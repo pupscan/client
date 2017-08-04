@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-md-offset-3 col-md-6">
                     <div class="ibox-content">
-                        <h1 class="title">Clients</h1>
+                        <h1 class="title">Clients {{ error }}</h1>
                         <form class="m-t" @submit.prevent="login">
                             <div class="form-group">
                                 <input class="form-control" placeholder="Email" v-model="email">
