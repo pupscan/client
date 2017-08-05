@@ -7,10 +7,10 @@
                         <h1 class="title">Clients {{ error }}</h1>
                         <form class="m-t" @submit.prevent="login">
                             <div class="form-group">
-                                <input class="form-control" placeholder="Email" v-model="email">
+                                <input type="email" class="form-control" placeholder="Email" v-model="email">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Password" v-model="password">
+                                <input type="password" class="form-control" placeholder="Password" v-model="password">
                             </div>
 
                         </form>
