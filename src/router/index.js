@@ -23,7 +23,7 @@ export default new VueRouter({
         }
       }
     },
-    {path: '/login', beforeEnter: () => window.location.href = 'https://portal.pupscan.com/login'},
+    {path: '/login', beforeEnter: () => window.location.href = 'https://portal.pupscan.com/#/login'},
     {path: '*', component: p404}
   ]
 })
